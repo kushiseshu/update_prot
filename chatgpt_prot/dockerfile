@@ -1,0 +1,13 @@
+FROM python:3-alpine
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Copy everything in current folder (HTML, CSS, JS) to container's /app
+COPY chatgpt_prot /app
+
+# Expose the port
+EXPOSE 5500
+
+# Start HTTP server from inside /app
+CMD ["python3", "-m", "http.server", "5500"]
